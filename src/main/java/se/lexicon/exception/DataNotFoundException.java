@@ -4,7 +4,7 @@ public class DataNotFoundException extends Exception {
 
     private String objectName;
 
-    public DataNotFoundException() {
+    public DataNotFoundException(String not_found, String student) {
         super(message);
         this.objectName = objectName;
     }
