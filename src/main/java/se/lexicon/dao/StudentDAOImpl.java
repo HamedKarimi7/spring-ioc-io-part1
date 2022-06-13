@@ -26,6 +26,10 @@ public class StudentDAOImpl implements StudentDao {
 
     @Override
     public Student find(int id) throws DataNotFoundException {
+
+        students.stream()
+                .filter(student -> student.getId() == id)
+                .findFirst().orElseThrow(() -> new DataNotFoundException() );
         return null;
     }
 
