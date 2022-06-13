@@ -1,5 +1,6 @@
 package se.lexicon.dao;
 
+import se.lexicon.dao.sequencer.StudentIdSequencer;
 import se.lexicon.exception.DataNotFoundException;
 import se.lexicon.model.Student;
 
@@ -18,6 +19,7 @@ public class StudentDAOImpl implements StudentDao {
     @Override
     public Student save(Student student) {
         if (student == null) throw new IllegalArgumentException("Student is null");
+        student.setId(StudentIdSequencer.nextId());
         students.add(student);
         return null;
     }
