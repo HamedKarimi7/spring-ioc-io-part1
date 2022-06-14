@@ -6,6 +6,7 @@ import se.lexicon.model.Student;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 public class StudentDAOImpl implements StudentDao {
 
@@ -35,11 +36,13 @@ public class StudentDAOImpl implements StudentDao {
 
     @Override
     public List<Student> findAll() {
-        return null;
+        return new ArrayList<>(students);
     }
 
     @Override
     public void delete(int id) throws DataNotFoundException {
-
+        Student result = find(id);
+        if (result != null ) {students.remove(result);}
+        //Optional.ofNullable(find(id)).ifPresent(students::remove); use when we didnot put throw new IllegalArgumentException
     }
 }
