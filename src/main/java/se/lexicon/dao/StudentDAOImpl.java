@@ -1,5 +1,6 @@
 package se.lexicon.dao;
 
+import org.springframework.stereotype.Component;
 import se.lexicon.dao.sequencer.StudentIdSequencer;
 import se.lexicon.exception.DataNotFoundException;
 import se.lexicon.model.Student;
@@ -8,6 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+@Component
 public class StudentDAOImpl implements StudentDao {
 
     private List<Student> students;
@@ -42,7 +44,13 @@ public class StudentDAOImpl implements StudentDao {
     @Override
     public void delete(int id) throws DataNotFoundException {
         Student result = find(id);
-        if (result != null ) {students.remove(result);}
+        if (result != null ) {students.remove(result); }
         //Optional.ofNullable(find(id)).ifPresent(students::remove); use when we didnot put throw new IllegalArgumentException
     }
+
+    public void clear(){
+        students.clear();
+    }
+
 }
+
