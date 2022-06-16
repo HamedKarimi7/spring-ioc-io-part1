@@ -6,7 +6,7 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="spring-ioc-io-part1" />
+        <module name="spring-ioc-io-part1-2" />
       </profile>
     </annotationProcessing>
   </component>
