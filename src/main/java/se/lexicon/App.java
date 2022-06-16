@@ -5,6 +5,8 @@ import se.lexicon.config.AppConfig;
 import se.lexicon.dao.StudentDAOImpl;
 import se.lexicon.dao.StudentDao;
 import se.lexicon.model.Student;
+import se.lexicon.util.UserInputService;
+
 
 public class App {
 
@@ -18,13 +20,21 @@ public class App {
         System.out.println(studentDAO.findAll());*/
 
 
-        // spring
-        AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(AppConfig.class);
+        // spring for StudentDAO
+       /* AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(AppConfig.class);
         StudentDao studentDAO = context.getBean(StudentDao.class);
         studentDAO.save(student);
         Student studentAli = new Student("ali");
         studentDAO.save(studentAli);
         System.out.println(studentDAO.findAll());
+
+        */
+
+
+        // spring for UserInputService
+
+        AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(AppConfig.class);
+        UserInputService UserInputService = context.getBean(UserInputService.class);
 
     }
 
